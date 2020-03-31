@@ -1,0 +1,70 @@
+﻿@using React.AspNet
+<!DOCTYPE html>
+<html>
+<head>
+	@Html.Raw(ViewBag.HelmetTitle)
+	<meta charset="utf-8" />
+	<link rel="stylesheet" href="~/Sample.css" />
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/css/bootstrap.min.css" />
+	@Html.Raw(ViewBag.ServerStyles)
+	@Html.ReactGetStylePaths()
+</head>
+<body>
+    <div class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container">
+            <div class="col-md-3"><span>@ViewBag.Title</span></div>
+            <div class="col-md-5">Menu items</div>
+            <span class="col-md-3">
+            @if (ViewBag.IsSignin)
+            {
+                <span>@ViewBag.AccountName</span>
+            }
+            else
+            {
+                <a href="/Account/SignIn" style="text-decoration: none;margin:0px;">
+                    <svg width="180" height="30" xmlns="http://www.w3.org/2000/svg">
+                        <style type="text/css">
+
+                            .fil0:hover {
+                                fill: #4B4B4B;
+                            }
+
+                            .fnt0 {
+                                font-size: 260px;
+                                font-family: 'Segoe UI Semibold', 'Segoe UI';
+                                text-decoration: none;
+                            }
+                        </style>
+                        <g>
+                            <title>background</title>
+                            <rect fill="none" id="canvas_background" height="32" width="182" y="-1" x="-1" />
+                        </g>
+                        <g>
+                            <title>the functions will work if login completed</title>
+                            <g stroke="null" id="svg_8">
+                                <rect stroke="null" x="0" y="0" id="svg_1" fill="white" height="29.99781" width="180.15944"
+                                        class="fil0" />
+                            </g>
+                            <g stroke="null" id="svg_10">
+                                <rect stroke="null" id="svg_2" fill="#F35325" height="8" width="8" y="5" x="2" />
+                                <rect stroke="null" id="svg_3" fill="#81BC06" height="8" width="8" y="5" x="11" />
+                                <rect stroke="null" id="svg_4" fill="#05A6F0" height="8" width="8" y="14" x="2" />
+                                <rect stroke="null" id="svg_5" fill="#FFBA08" height="8" width="8" y="14" x="11" />
+                            </g>
+                            <g id="svg_9" stroke="null">
+                                <text x="445" y="333" id="svg_6" class="fnt0" fill="black" stroke="null"
+                                        transform="matrix(0.05,0,0,0.06,0,0) ">Sign in to Microsoft Graph</text>
+                            </g>
+                        </g>
+                    </svg>
+                </a>
+            }
+            </span>
+            <div class="col-md-1"><span>@ViewBag.Message</span></div>
+        </div>
+    </div>
+    @RenderBody()
+    @Html.ReactGetScriptPaths()
+    @Html.ReactInitJavaScript()
+</body>
+</html>
